@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mascota Segura · mockup</title>
+<style>
+  :root{
+    --verde-profundo:#0B3D2E; --esmeralda:#0F7A5A; --verde-vivo:#17A673; --menta:#9FE3C2;
+    --fondo:#EAF6EF; --crema:#F7FBF8; --tarjeta:#FBFDFC; --borde:#CFE6D8; --texto:#2F4F43;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;background:var(--fondo);color:var(--verde-profundo)}
+  header{display:flex;align-items:center;gap:14px;padding:18px 28px;background:var(--verde-profundo);color:var(--crema)}
+  header img{width:44px;height:44px;border-radius:10px}
+  header h1{font-size:20px;margin:0;font-weight:700}
+  header small{display:block;color:var(--menta);font-weight:400}
+  main{max-width:1180px;margin:0 auto;padding:28px 16px 48px}
+  .intro{color:var(--texto);margin:0 0 22px;font-size:15px}
+  .phones{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+  .phone{background:var(--tarjeta);border:1px solid var(--borde);border-radius:28px;padding:18px 16px 22px;box-shadow:0 10px 30px rgba(11,61,46,.08);display:flex;flex-direction:column;gap:12px;min-height:560px}
+  .phone h2{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--esmeralda);margin:0}
+  .phone h3{font-size:22px;margin:0;line-height:1.15}
+  .muted{color:var(--texto);font-size:14px;line-height:1.4;margin:0}
+  /* Carnet */
+  .carnet{background:var(--verde-profundo);color:var(--crema);border-radius:18px;padding:16px;display:flex;gap:14px;align-items:center}
+  .carnet .nombre{font-size:20px;font-weight:700}
+  .carnet .datos{font-size:13px;color:var(--menta);line-height:1.5}
+  .qr{width:96px;height:96px;background:#fff;border-radius:10px;padding:8px;display:grid;grid-template-columns:repeat(9,1fr);gap:1.5px;flex:none}
+  .qr i{background:#0B3D2E;border-radius:1px}
+  .qr i.o{background:transparent}
+  .lista{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+  .lista li{display:flex;justify-content:space-between;gap:10px;background:var(--fondo);border-radius:12px;padding:10px 12px;font-size:14px}
+  .lista .sello{font-size:11px;color:var(--esmeralda);font-family:ui-monospace,Consolas,monospace}
+  .sellado{color:var(--esmeralda);font-weight:600}
+  /* Cajita */
+  .saldo{background:linear-gradient(135deg,var(--esmeralda),var(--verde-vivo));color:#fff;border-radius:18px;padding:18px}
+  .saldo .bs{font-size:38px;font-weight:800;line-height:1}
+  .saldo .usdc{opacity:.9;font-size:14px;margin-top:6px}
+  .meta{display:flex;flex-direction:column;gap:6px;font-size:14px}
+  .barra{height:10px;background:var(--fondo);border-radius:6px;overflow:hidden}
+  .barra b{display:block;height:100%;background:var(--verde-vivo)}
+  .btns{display:flex;gap:8px;margin-top:auto}
+  .btn{flex:1;border:0;border-radius:12px;padding:12px;font-weight:700;font-size:14px;cursor:pointer}
+  .btn.p{background:var(--esmeralda);color:#fff}
+  .btn.s{background:var(--fondo);color:var(--verde-profundo)}
+  .regla{font-size:12px;color:var(--texto);background:var(--fondo);border-left:4px solid var(--verde-vivo);padding:8px 10px;border-radius:0 10px 10px 0}
+  /* Chat */
+  .chat{display:flex;flex-direction:column;gap:8px;flex:1}
+  .msg{max-width:88%;padding:10px 12px;border-radius:16px;font-size:14px;line-height:1.4}
+  .msg.bot{background:var(--fondo);border-bottom-left-radius:4px}
+  .msg.yo{background:var(--verde-profundo);color:var(--crema);align-self:flex-end;border-bottom-right-radius:4px}
+  .hora{font-size:11px;color:var(--texto);text-align:center}
+  footer{text-align:center;color:var(--texto);font-size:13px;padding:10px 16px 30px}
+  footer code{background:var(--tarjeta);border:1px solid var(--borde);padding:2px 6px;border-radius:6px}
+</style>
+</head>
+<body>
+<header>
+  <img src="assets/logo.svg" alt="Mascota Segura">
+  <h1>Mascota Segura <small>mockup de las tres piezas · Ideatón Stellar Bolivia 2026</small></h1>
+</header>
+<main>
+  <p class="intro">Maqueta estática de lo que ve el dueño en su celular. Los datos son de ejemplo. Lo que sí es real está en <code>contracts/caja_mascota</code> y en <code>deployments/testnet.json</code>.</p>
+  <div class="phones">
+
+    <!-- 1. Carnet de salud con QR -->
+    <section class="phone">
+      <h2>1 · Carnet de salud</h2>
+      <div class="carnet">
+        <div class="qr" id="qr"></div>
+        <div>
+          <div class="nombre">Firulais</div>
+          <div class="datos">Mestizo · 6 años · 14 kg<br>Dueño: Orlando V.<br>RUM: pendiente</div>
+        </div>
+      </div>
+      <p class="muted">El veterinario escanea el QR, tú autorizas desde WhatsApp y ve el historial completo. Cada consulta queda sellada en Stellar.</p>
+      <ul class="lista">
+        <li><span>Vacuna antirrábica · 12 ago 2026</span><span class="sello sellado">sellada ✓</span></li>
+        <li><span>Desparasitación · 12 ago 2026</span><span class="sello sellado">sellada ✓</span></li>
+        <li><span>Consulta por tos · 3 may 2026</span><span class="sello sellado">sellada ✓</span></li>
+        <li><span>Limpieza dental · mar 2027</span><span class="sello">programada</span></li>
+      </ul>
+      <p class="regla">A la cadena solo va el hash del registro; el historial completo vive cifrado fuera de la cadena y lo abre el dueño.</p>
+    </section>
+
+    <!-- 2. Cajita de ahorro -->
+    <section class="phone">
+      <h2>2 · Cajita de ahorro</h2>
+      <div class="saldo">
+        <div class="bs">Bs 240</div>
+        <div class="usdc">20,5 USDC en la cajita de Firulais · Stellar</div>
+      </div>
+      <div class="meta">
+        <span>Vacuna anual (Bs 70) · cubierta</span><div class="barra"><b style="width:100%"></b></div>
+        <span>Desparasitación de noviembre (Bs 30) · cubierta</span><div class="barra"><b style="width:100%"></b></div>
+        <span>Limpieza dental de marzo (Bs 420) · faltan Bs 180</span><div class="barra"><b style="width:57%"></b></div>
+      </div>
+      <ul class="lista">
+        <li><span>Aporte mensual · Orlando</span><span>Bs 20</span></li>
+        <li><span>Aporte · abuela (España)</span><span>10 USDC</span></li>
+        <li><span>Pago · Veterinaria Norte, consulta 0001</span><span>− Bs 30</span></li>
+      </ul>
+      <p class="regla">Solo paga a veterinarias verificadas y solo con una consulta sellada. Cada pago lo firma el dueño: nadie custodia la plata.</p>
+      <div class="btns"><button class="btn p">Aportar por QR</button><button class="btn s">Invitar familiar</button></div>
+    </section>
+
+    <!-- 3. Asistente en WhatsApp -->
+    <section class="phone">
+      <h2>3 · Asistente en WhatsApp</h2>
+      <h3>Mascota Segura 🐾</h3>
+      <div class="chat">
+        <div class="hora">hoy 7:30</div>
+        <div class="msg bot">Hola Orlando 👋 La cajita de Firulais tiene Bs 240 (20,5 USDC). Ya cubres la vacuna anual y la desparasitación de noviembre. Para la limpieza dental de marzo faltan Bs 180: con Bs 20 al mes llegas justo. ¿Mantengo el aporte mensual?</div>
+        <div class="msg yo">Sí</div>
+        <div class="msg bot">Listo ✅ Recordatorio: la desparasitación vence el 12 de noviembre (la última fue el 12 de agosto, según su carnet). ¿Te reservo turno en Veterinaria Norte el sábado 8 a las 10:00?</div>
+        <div class="msg yo">Dale</div>
+        <div class="msg bot">Turno reservado. Cuando el doctor escanee el QR verá el carnet completo y el pago saldrá de la cajita al sellar la consulta.</div>
+        <div class="msg bot">🌤️ Hoy en Cochabamba hace 27°: paseo corto antes de las 9, agua fresca cada 2 horas y un juego de olfato con tres vasitos y una croqueta escondida. Cinco minutos y vuelve feliz.</div>
+      </div>
+      <p class="regla">Mensajes de utilidad por la API de WhatsApp (~US$ 0,011 cada uno en Bolivia): cabe dentro del plan de Bs 15 al mes.</p>
+    </section>
+
+  </div>
+</main>
+<footer>Maqueta sin backend. Contrato <code>CajaMascota</code> en Soroban: ver <code>README.md</code> y <code>deployments/testnet.json</code>.</footer>
+<script>
+  // QR decorativo (patrón pseudoaleatorio fijo) para no depender de librerías.
+  const qr = document.getElementById('qr'); let seed = 7;
+  for (let i = 0; i < 81; i++) {
+    seed = (seed * 9301 + 49297) % 233280;
+    const r = Math.floor(i / 9), c = i % 9;
+    const finder = (r < 3 && c < 3) || (r < 3 && c > 5) || (r > 5 && c < 3);
+    const on = finder ? !((r % 3 === 1) && (c % 3 === 1)) : (seed / 233280) > 0.55;
+    const cell = document.createElement('i'); if (!on) cell.className = 'o'; qr.appendChild(cell);
+  }
+</script>
+</body>
+</html>

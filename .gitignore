@@ -1,0 +1,21 @@
+# Rust / Soroban
+target/
+**/*.rs.bk
+test_snapshots/
+
+# Claves y secretos (las identidades de stellar-cli viven en ~/.config/stellar, no aquí)
+.env
+.env.*
+!.env.example
+secrets/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Editores y sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

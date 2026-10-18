@@ -1,7 +1,7 @@
 <#
 .SYNOPSIS
   Despliega CajaMascota en Stellar testnet y corre el flujo de demo:
-  aporte del dueño -> la veterinaria sella la consulta -> la cajita paga a la veterinaria.
+  aporte del dueno -> la veterinaria sella la consulta -> la cajita paga a la veterinaria.
 
 .DESCRIPTION
   Requisitos: stellar-cli (>= 22), Rust con el target wasm32v1-none y acceso a internet.
@@ -34,7 +34,15 @@ function Run([string]$cmd) {
     # cmd /c pasa los argumentos tal cual, incluido el separador "--" que usa stellar-cli.
     Write-Host ">> $cmd" -ForegroundColor DarkGray
     $out = cmd /c "$cmd 2>&1" | Out-String
-    if ($LASTEXITCODE -ne 0) { throw "Falló: $cmd`n$out" }
+    if ($LASTEXITCODE -ne 0) { throw "Fallo: $cmd`n$out" }
+    return $out
+}
+
+function RunQuiet([string]$cmd) {
+    # Igual que Run pero sin stderr: para lecturas (balance) stellar-cli avisa por stderr que no envia la transaccion.
+    Write-Host ">> $cmd" -ForegroundColor DarkGray
+    $out = cmd /c "$cmd 2>nul" | Out-String
+    if ($LASTEXITCODE -ne 0) { throw "Fallo: $cmd" }
     return $out
 }
 
@@ -60,7 +68,7 @@ function Ensure-Key([string]$name) {
 $Dueno = Ensure-Key "ms-dueno"
 $Vet = Ensure-Key "ms-vet"
 $Token = (Run "stellar contract id asset --asset native --network $Network").Trim()
-Write-Host "Dueño:       $Dueno"
+Write-Host "Dueno:       $Dueno"
 Write-Host "Veterinaria: $Vet"
 Write-Host "Token (XLM): $Token"
 
@@ -112,7 +120,7 @@ $hash = ([System.BitConverter]::ToString($sha.ComputeHash([System.Text.Encoding]
 $sealOut = Run "stellar contract invoke --id caja_mascota --source ms-vet --network $Network -- seal_record --vet $Vet --pet_id $PetId --visit_id $VisitId --hash $hash"
 
 $payOut = Run "stellar contract invoke --id caja_mascota --source ms-dueno --network $Network -- pay_vet --visit_id $VisitId --amount $PayStroops"
-$balance = (Run "stellar contract invoke --id caja_mascota --source ms-dueno --network $Network -- balance").Trim().Trim('"')
+$balance = (RunQuiet "stellar contract invoke --id caja_mascota --source ms-dueno --network $Network -- balance").Trim().Trim('"')
 
 $visit = @{
     pet_id        = $PetId

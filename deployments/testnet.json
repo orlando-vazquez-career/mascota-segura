@@ -1,0 +1,37 @@
+{
+  "network": "testnet",
+  "contract_id": "CAKSO4XWX4LNQ5JUXHEKXEGEEGHRS4PUR3TGQGOMIMOLPS5XWIAXX23Y",
+  "owner": "GD73EA76JFDNMMXHT2GQWEBQDMD3FCX7JXNQRN7CWHT3VTDNKKKBXAKS",
+  "vet": "GAQTLCPPQ5GO3EDLLI3FVSCLAHHMUVFHAQUWCMY447Q5MQRMQBY33K2U",
+  "token": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+  "deployed_at": "2026-10-18T02:35:32Z",
+  "tx": {
+    "deploy": "a1b81eb2bd673fd718a5d950dde86027d89ea27f64d03455602dc7fe4a8e2f12",
+    "init": "b0287e800d6f181c96f77355377b297a2569edc15778f025e526cf03614bf3c0",
+    "add_vet": "06c359f425380163eb2fa6daf22bfceb0cfa20d0312bdd7062fd07eeeebb07a5"
+  },
+  "visits": [
+    {
+      "pet_id": 1,
+      "visit_id": 1,
+      "registro": "mascota:1|consulta:1|vacuna antirrabica|2026-10-17",
+      "hash": "7765ae3bff38ce41d2942f4d510e72234d28c6f203544ffbb1a4681e9afee1db",
+      "deposit": 2000000000,
+      "paid": 1200000000,
+      "balance_after": 800000000,
+      "tx": {
+        "deposit": "40d6c57aea1e938d8051b892890a2b540a036ca8a2f4fcdaf91d693bb431e189",
+        "seal_record": "d6ddcede5c7b0058810c7a67720f8ca3f2b032872cb5e3c4f71969a41d6ea7c3",
+        "pay_vet": "b1ba7298f222597f3261dd5707ebf7fb376b2d094f82f0ac187fdbc0a1703a34"
+      }
+    }
+  ],
+  "links": {
+    "contract": "https://stellar.expert/explorer/testnet/contract/CAKSO4XWX4LNQ5JUXHEKXEGEEGHRS4PUR3TGQGOMIMOLPS5XWIAXX23Y",
+    "owner": "https://stellar.expert/explorer/testnet/account/GD73EA76JFDNMMXHT2GQWEBQDMD3FCX7JXNQRN7CWHT3VTDNKKKBXAKS",
+    "vet": "https://stellar.expert/explorer/testnet/account/GAQTLCPPQ5GO3EDLLI3FVSCLAHHMUVFHAQUWCMY447Q5MQRMQBY33K2U",
+    "deposit": "https://stellar.expert/explorer/testnet/tx/40d6c57aea1e938d8051b892890a2b540a036ca8a2f4fcdaf91d693bb431e189",
+    "seal_record": "https://stellar.expert/explorer/testnet/tx/d6ddcede5c7b0058810c7a67720f8ca3f2b032872cb5e3c4f71969a41d6ea7c3",
+    "pay_vet": "https://stellar.expert/explorer/testnet/tx/b1ba7298f222597f3261dd5707ebf7fb376b2d094f82f0ac187fdbc0a1703a34"
+  }
+}

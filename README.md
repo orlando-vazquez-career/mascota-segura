@@ -62,6 +62,25 @@ El script crea dos identidades locales fondeadas con Friendbot (`ms-dueno`, `ms-
 
 Los ids, hashes de transacción y links a Stellar Expert quedan en [`deployments/testnet.json`](deployments/testnet.json).
 
+### Ya corre en testnet (17 de octubre de 2026)
+
+Contrato `CajaMascota`: [`CAKSO4XWX4LNQ5JUXHEKXEGEEGHRS4PUR3TGQGOMIMOLPS5XWIAXX23Y`](https://stellar.expert/explorer/testnet/contract/CAKSO4XWX4LNQ5JUXHEKXEGEEGHRS4PUR3TGQGOMIMOLPS5XWIAXX23Y)
+
+| Paso | Quién firma | Transacción |
+|---|---|---|
+| Despliegue | dueño | [a1b81eb2…](https://stellar.expert/explorer/testnet/tx/a1b81eb2bd673fd718a5d950dde86027d89ea27f64d03455602dc7fe4a8e2f12) |
+| `init` (dueño + token XLM) | dueño | [b0287e80…](https://stellar.expert/explorer/testnet/tx/b0287e800d6f181c96f77355377b297a2569edc15778f025e526cf03614bf3c0) |
+| `add_vet` (verifica la veterinaria) | dueño | [06c359f4…](https://stellar.expert/explorer/testnet/tx/06c359f425380163eb2fa6daf22bfceb0cfa20d0312bdd7062fd07eeeebb07a5) |
+| `deposit` 200 XLM a la cajita | dueño | [40d6c57a…](https://stellar.expert/explorer/testnet/tx/40d6c57aea1e938d8051b892890a2b540a036ca8a2f4fcdaf91d693bb431e189) |
+| `seal_record` consulta 1, mascota 1 | veterinaria | [d6ddcede…](https://stellar.expert/explorer/testnet/tx/d6ddcede5c7b0058810c7a67720f8ca3f2b032872cb5e3c4f71969a41d6ea7c3) |
+| `pay_vet` 120 XLM por la consulta 1 | dueño | [b1ba7298…](https://stellar.expert/explorer/testnet/tx/b1ba7298f222597f3261dd5707ebf7fb376b2d094f82f0ac187fdbc0a1703a34) |
+
+Saldo final de la cajita: 80 XLM. Cuentas: [dueño](https://stellar.expert/explorer/testnet/account/GD73EA76JFDNMMXHT2GQWEBQDMD3FCX7JXNQRN7CWHT3VTDNKKKBXAKS) · [veterinaria](https://stellar.expert/explorer/testnet/account/GAQTLCPPQ5GO3EDLLI3FVSCLAHHMUVFHAQUWCMY447Q5MQRMQBY33K2U).
+
+## Material de la ideatón
+
+En [`docs/entrega/`](docs/entrega/): estudio de validación de mercado (PDF, 112 fuentes), logo y, el domingo, el deck de 8 slides y la evidencia de las entrevistas. El video de 3 minutos va en el proyecto de Stellar Apex.
+
 ## Estructura del repositorio
 
 ```
